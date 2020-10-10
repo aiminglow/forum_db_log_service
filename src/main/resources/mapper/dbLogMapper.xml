@@ -1,0 +1,83 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.aiming.low.forum_db_log_service.dao.ImmutableDbLogMapper">
+    <insert id="insert" parameterType="com.aiming.low.forum_db_log_service.entity.ImmutableDbLog">
+        insert into db_log
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="logId != null">
+                log_id,
+            </if>
+            <if test="optName != null">
+                opt_name,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="requestUri != null">
+                request_uri,
+            </if>
+            <if test="method != null">
+                method,
+            </if>
+            <if test="params != null">
+                params,
+            </if>
+            <if test="ip != null">
+                ip,
+            </if>
+            <if test="userAgent != null">
+                user_agent,
+            </if>
+            <if test="errorMsg != null">
+                error_msg,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="executeTime != null">
+                execute_time,
+            </if>
+            <if test="logStatus != null">
+                log_status,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="logId != null">
+                #{logId},
+            </if>
+            <if test="optName != null">
+                #{optName},
+            </if>
+            <if test="userId != null">
+                #{userId},
+            </if>
+            <if test="requestUri != null">
+                #{requestUri},
+            </if>
+            <if test="method != null">
+                #{method},
+            </if>
+            <if test="params != null">
+                #{params},
+            </if>
+            <if test="ip != null">
+                #{ip},
+            </if>
+            <if test="userAgent != null">
+                #{userAgent},
+            </if>
+            <if test="errorMsg != null">
+                #{errorMsg},
+            </if>
+            <if test="createTime != null">
+                #{createTime, typeHandler=com.aiming.low.forum_db_log_service.dao.type_handler.DateIntegerHandler},
+            </if>
+            <if test="executeTime != null">
+                #{executeTime},
+            </if>
+            <if test="logStatus != null">
+                #{logStatus},
+            </if>
+        </trim>
+    </insert>
+</mapper>
